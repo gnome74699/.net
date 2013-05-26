@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WorldMessagesDatabase.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="WorldMessagesDatabaseStoreContainer">
+    <EntitySet Name="UserSet" EntityType="WorldMessagesDatabase.Store.UserSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConversationSet" EntityType="WorldMessagesDatabase.Store.ConversationSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MessageSet" EntityType="WorldMessagesDatabase.Store.MessageSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConversationUser" EntityType="WorldMessagesDatabase.Store.ConversationUser" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ConversationUser_Conversation" Association="WorldMessagesDatabase.Store.FK_ConversationUser_Conversation">
+      <End Role="Conversation" EntitySet="ConversationSet" />
+      <End Role="ConversationUser" EntitySet="ConversationUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConversationUser_User" Association="WorldMessagesDatabase.Store.FK_ConversationUser_User">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="ConversationUser" EntitySet="ConversationUser" />
+    </AssociationSet>
+    <AssociationSet Name="ConversationMessage" Association="WorldMessagesDatabase.Store.ConversationMessage">
+      <End Role="Conversation" EntitySet="ConversationSet" />
+      <End Role="Message" EntitySet="MessageSet" />
+    </AssociationSet>
+    <AssociationSet Name="MessageUser" Association="WorldMessagesDatabase.Store.MessageUser">
+      <End Role="Message" EntitySet="MessageSet" />
+      <End Role="User" EntitySet="UserSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConversationSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MessageSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Conversation_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConversationUser">
+    <Key>
+      <PropertyRef Name="Conversation_Id" />
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="Conversation_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ConversationMessage">
+    <End Role="Conversation" Type="WorldMessagesDatabase.Store.ConversationSet" Multiplicity="1" />
+    <End Role="Message" Type="WorldMessagesDatabase.Store.MessageSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conversation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="Conversation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MessageUser">
+    <End Role="Message" Type="WorldMessagesDatabase.Store.MessageSet" Multiplicity="*" />
+    <End Role="User" Type="WorldMessagesDatabase.Store.UserSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConversationUser_Conversation">
+    <End Role="Conversation" Type="WorldMessagesDatabase.Store.ConversationSet" Multiplicity="1" />
+    <End Role="ConversationUser" Type="WorldMessagesDatabase.Store.ConversationUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conversation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConversationUser">
+        <PropertyRef Name="Conversation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConversationUser_User">
+    <End Role="ConversationUser" Type="WorldMessagesDatabase.Store.ConversationUser" Multiplicity="*" />
+    <End Role="User" Type="WorldMessagesDatabase.Store.UserSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConversationUser">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="WorldMessagesDatabase" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="WorldMessagesDatabaseContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserSet" EntityType="WorldMessagesDatabase.User" />
+          <EntitySet Name="ConversationSet" EntityType="WorldMessagesDatabase.Conversation" />
+          <EntitySet Name="MessageSet" EntityType="WorldMessagesDatabase.Message" />
+          <AssociationSet Name="ConversationUser" Association="WorldMessagesDatabase.ConversationUser">
+            <End Role="Conversation" EntitySet="ConversationSet" />
+            <End Role="User" EntitySet="UserSet" />
+          </AssociationSet>
+          <AssociationSet Name="ConversationMessage" Association="WorldMessagesDatabase.ConversationMessage">
+            <End Role="Conversation" EntitySet="ConversationSet" />
+            <End Role="Message" EntitySet="MessageSet" />
+          </AssociationSet>
+          <AssociationSet Name="MessageUser" Association="WorldMessagesDatabase.MessageUser">
+            <End Role="Message" EntitySet="MessageSet" />
+            <End Role="User" EntitySet="UserSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Conversation" Relationship="WorldMessagesDatabase.ConversationUser" FromRole="User" ToRole="Conversation" />
+          <Property Type="String" Name="UserName" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
+          <Property Type="String" Name="PhoneNumber" Nullable="false" />
+          <NavigationProperty Name="Message" Relationship="WorldMessagesDatabase.MessageUser" FromRole="User" ToRole="Message" />
+        </EntityType>
+        <EntityType Name="Conversation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="WorldMessagesDatabase.ConversationUser" FromRole="Conversation" ToRole="User" />
+          <NavigationProperty Name="Message" Relationship="WorldMessagesDatabase.ConversationMessage" FromRole="Conversation" ToRole="Message" />
+          <Property Type="String" Name="Date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Conversation" Relationship="WorldMessagesDatabase.ConversationMessage" FromRole="Message" ToRole="Conversation" />
+          <Property Type="String" Name="Date" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="WorldMessagesDatabase.MessageUser" FromRole="Message" ToRole="User" />
+        </EntityType>
+        <Association Name="ConversationUser">
+          <End Type="WorldMessagesDatabase.Conversation" Role="Conversation" Multiplicity="*" />
+          <End Type="WorldMessagesDatabase.User" Role="User" Multiplicity="*" />
+        </Association>
+        <Association Name="ConversationMessage">
+          <End Type="WorldMessagesDatabase.Conversation" Role="Conversation" Multiplicity="1" />
+          <End Type="WorldMessagesDatabase.Message" Role="Message" Multiplicity="*" />
+        </Association>
+        <Association Name="MessageUser">
+          <End Type="WorldMessagesDatabase.Message" Role="Message" Multiplicity="*" />
+          <End Type="WorldMessagesDatabase.User" Role="User" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WorldMessagesDatabaseStoreContainer" CdmEntityContainer="WorldMessagesDatabaseContainer">
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(WorldMessagesDatabase.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConversationSet">
+      <EntityTypeMapping TypeName="IsTypeOf(WorldMessagesDatabase.Conversation)">
+        <MappingFragment StoreEntitySet="ConversationSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageSet">
+      <EntityTypeMapping TypeName="IsTypeOf(WorldMessagesDatabase.Message)">
+        <MappingFragment StoreEntitySet="MessageSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ConversationUser" TypeName="WorldMessagesDatabase.ConversationUser" StoreEntitySet="ConversationUser">
+      <EndProperty Name="Conversation">
+        <ScalarProperty Name="Id" ColumnName="Conversation_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConversationMessage" TypeName="WorldMessagesDatabase.ConversationMessage" StoreEntitySet="MessageSet">
+      <EndProperty Name="Conversation">
+        <ScalarProperty Name="Id" ColumnName="Conversation_Id" />
+      </EndProperty>
+      <EndProperty Name="Message">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MessageUser" TypeName="WorldMessagesDatabase.MessageUser" StoreEntitySet="MessageSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Message">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

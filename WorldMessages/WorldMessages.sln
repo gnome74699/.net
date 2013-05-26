@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldMessages.Web", "WorldMessages\WorldMessages.Web.csproj", "{5FD466F5-3C97-436A-A875-B753CFD4F451}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BD645015-FC1C-4D84-8A40-F45816657772}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Framework", "0-Framework", "{0D1D6C11-61F2-440A-B31B-B6380FDECDA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-DataAccess", "2-DataAccess", "{C762E17D-27D0-4B36-B3D4-B421EDD9C717}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-DomainModel", "3-DomainModel", "{7BD12655-C2D5-412A-8061-D439779FD252}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-WebUI", "4-WebUI", "{ED9E9625-1C03-4424-98EA-DA17AE99CF44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Internalisation", "5-Internalisation", "{58BFB13C-E0FE-49F5-AC1B-4DBCD3A69059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldMessages.DomainModel", "WorldMessages.DomainModel\WorldMessages.DomainModel.csproj", "{3640586B-0349-4D89-93B0-AE40DEA939ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldMessages.DomainModelFramework", "WorldMessages.DomainModelFramework\WorldMessages.DomainModelFramework.csproj", "{5ECD1CBC-7109-42E0-A35B-9E2CFFB7BCFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldMessages.CommonFramework", "WorldMessages.CommonFramework\WorldMessages.CommonFramework.csproj", "{B31AEF13-44C3-49EB-87A5-2AD97B02EB7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- DataBase", "1- DataBase", "{9E29E64A-CA30-4F1B-851C-CE15155C2651}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldMessages.DataAccess", "WorldMessages.DataAccess\WorldMessages.DataAccess.csproj", "{4959802D-B702-4C50-85CD-767DA94940DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldMessages.DataAccessFramework", "WorldMessages.DataAccessFramework\WorldMessages.DataAccessFramework.csproj", "{2706F445-89EB-4861-ABA0-8A8CAD4727F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldMessages.Database", "WorldMessages.Database\WorldMessages.Database.csproj", "{33621889-942F-49AF-A9BD-31DF1466A3D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FD466F5-3C97-436A-A875-B753CFD4F451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD466F5-3C97-436A-A875-B753CFD4F451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD466F5-3C97-436A-A875-B753CFD4F451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD466F5-3C97-436A-A875-B753CFD4F451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3640586B-0349-4D89-93B0-AE40DEA939ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3640586B-0349-4D89-93B0-AE40DEA939ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3640586B-0349-4D89-93B0-AE40DEA939ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3640586B-0349-4D89-93B0-AE40DEA939ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECD1CBC-7109-42E0-A35B-9E2CFFB7BCFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECD1CBC-7109-42E0-A35B-9E2CFFB7BCFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECD1CBC-7109-42E0-A35B-9E2CFFB7BCFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECD1CBC-7109-42E0-A35B-9E2CFFB7BCFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B31AEF13-44C3-49EB-87A5-2AD97B02EB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31AEF13-44C3-49EB-87A5-2AD97B02EB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31AEF13-44C3-49EB-87A5-2AD97B02EB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31AEF13-44C3-49EB-87A5-2AD97B02EB7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4959802D-B702-4C50-85CD-767DA94940DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4959802D-B702-4C50-85CD-767DA94940DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4959802D-B702-4C50-85CD-767DA94940DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4959802D-B702-4C50-85CD-767DA94940DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2706F445-89EB-4861-ABA0-8A8CAD4727F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2706F445-89EB-4861-ABA0-8A8CAD4727F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2706F445-89EB-4861-ABA0-8A8CAD4727F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2706F445-89EB-4861-ABA0-8A8CAD4727F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33621889-942F-49AF-A9BD-31DF1466A3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33621889-942F-49AF-A9BD-31DF1466A3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33621889-942F-49AF-A9BD-31DF1466A3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33621889-942F-49AF-A9BD-31DF1466A3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5FD466F5-3C97-436A-A875-B753CFD4F451} = {ED9E9625-1C03-4424-98EA-DA17AE99CF44}
+		{5ECD1CBC-7109-42E0-A35B-9E2CFFB7BCFE} = {0D1D6C11-61F2-440A-B31B-B6380FDECDA7}
+		{B31AEF13-44C3-49EB-87A5-2AD97B02EB7A} = {0D1D6C11-61F2-440A-B31B-B6380FDECDA7}
+		{2706F445-89EB-4861-ABA0-8A8CAD4727F3} = {0D1D6C11-61F2-440A-B31B-B6380FDECDA7}
+		{4959802D-B702-4C50-85CD-767DA94940DB} = {C762E17D-27D0-4B36-B3D4-B421EDD9C717}
+		{3640586B-0349-4D89-93B0-AE40DEA939ED} = {7BD12655-C2D5-412A-8061-D439779FD252}
+		{33621889-942F-49AF-A9BD-31DF1466A3D2} = {9E29E64A-CA30-4F1B-851C-CE15155C2651}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Validation.5.0.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal

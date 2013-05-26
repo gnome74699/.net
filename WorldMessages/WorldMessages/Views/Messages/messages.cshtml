@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "messages";
+}
+
+@section Header
+{
+    @Html.ActionLink("Conversation", "MyConversations", "Conversation", routeValues: null, htmlAttributes: new { data_icon = "gear" })
+}
+
+<section class="message-sender message-size" >
+    <p class="message-header">
+        01/09/2013 12:00
+    </p>
+    <p class="message-text">
+        Méss@ag3 One
+    </p>
+</section>
+
+<section class="message-recever message-size">
+    <p class="message-header">
+        01/09/2013 13:00
+    </p>
+    <p class="message-text">
+        Méss@ag3! two
+    </p>
+</section>
+
+<section class="message-sender message-size">
+    <p class="message-header">
+        01/09/2013 14:00
+    </p>
+    <p class="message-text">
+        Méss@ag3! tree
+    </p>
+</section>

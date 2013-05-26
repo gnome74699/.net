@@ -1,0 +1,30 @@
+﻿
+
+.message-size {
+    width: 50%;
+    padding: 5px;
+    margin: 10px;
+    -moz-border-radius:15px;
+	-webkit-border-radius:15px;
+}
+
+
+.message-sender {
+    border: greenyellow 12px;
+    background-color: greenyellow;
+    margin-left: 50%;
+}
+
+.message-recever {
+    border: cadetblue 12px;
+    background-color: cadetblue;
+}
+
+.message-text {
+    padding-left: 15px;
+}
+
+.message-header {
+    font-size: 9pt;
+    padding-left: 5px;
+}
